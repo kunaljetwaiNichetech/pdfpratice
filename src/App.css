@@ -1,0 +1,285 @@
+:root {
+  --primary-color: #2563eb;    /* Blue from Amtrudex */
+  --secondary-color: #1e40af;  /* Darker blue for hover */
+  --background-color: #f8fafc; /* Light gray background */
+  --text-color: #1e293b;      /* Dark text color */
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
+
+.header {
+  background-color: white;
+  color: black;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: black;
+  text-decoration: none;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.upload-section {
+  margin: 0;
+}
+
+.file-input {
+  background-color: white;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #3E497A;
+  border-radius: 0.75rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: #3E497A;
+  font-weight: 500;
+}
+
+.file-input:hover {
+  background-color: #3E497A;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Style for the actual file input */
+.file-input::-webkit-file-upload-button {
+  visibility: hidden;
+  display: none;
+}
+
+.file-input::before {
+  content: 'Choose PDF';
+  display: inline-block;
+  background-color: white;
+  color: #3E497A;
+  border: 2px solid #3E497A;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.file-input:hover::before {
+  background-color: #3E497A;
+  color: white;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  width: 100%;
+}
+
+.pdf-container {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 3px solid #3E497A;
+}
+
+.upload-message {
+  text-align: center;
+  color: #64748b;
+  font-size: 1.1rem;
+  padding: 3rem;
+}
+
+.footer {
+  background-color: #1A1A2E;
+  padding: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  color: white;
+}
+
+.navigation-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.5rem;
+  margin: 1rem 2rem;
+  background-color: white;
+}
+
+.arrow-btn {
+  background-color: #3E497A;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-btn:hover {
+  background-color: #2d355b;
+}
+
+.arrow-btn:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.page-number {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #3E497A;
+  background-color: white;
+  color: #3E497A;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-number:hover {
+  background-color: #3E497A;
+  color: white;
+}
+
+.page-number.active {
+  background-color: #3E497A;
+  color: white;
+}
+
+.error-message {
+  color: #dc2626;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #fee2e2;
+  border-radius: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.react-pdf__Document {
+  border: 3px solid #3E497A;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.react-pdf__Page {
+  margin: 0 auto;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .pdf-container {
+    padding: 1rem;
+  }
+
+  .react-pdf__Document {
+    padding: 1rem;
+  }
+
+  .navigation-controls {
+    padding: 1rem;
+    margin: 1rem;
+    flex-wrap: wrap;  /* Allow pagination to wrap on small screens */
+  }
+
+  .pagination-numbers {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .page-number {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  .arrow-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .file-input::before {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* For very small screens */
+@media screen and (max-width: 480px) {
+  .header {
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .file-input {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navigation-controls {
+    gap: 0.5rem;
+  }
+
+  .page-number {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Ensure PDF fits screen width */
+.react-pdf__Page canvas {
+  max-width: 100% !important;
+  height: auto !important;
+}
